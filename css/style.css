@@ -1,0 +1,443 @@
+:root {
+  --primary-color: rgb(52, 167, 222);
+  --secondary-color: rgb(101, 188, 230);
+  --grey-color: #7f7f80;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-size: 21px;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+}
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+.font p {
+  font-size: 20px !important;
+}
+.bg-grey {
+  background: rgb(247, 247, 247);
+}
+
+/* Image */
+.main-banner {
+  position: relative;
+  /* khi .. vào ../images/banner.jp thì sẽ làm cho ảnh trôi vào folder images */
+  /* background: url(../images/banner.jpg) no-repeat center;
+  background-size: cover;
+  overflow: hidden;
+  height: 800px;  */
+  /* Bôi đen phần ảnh */
+  color: #fff;
+}
+
+.text-banner {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+/* Navigation */
+
+.container-navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px;
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+  text-align: center;
+}
+.nav-top a {
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 20px;
+}
+
+/* Tạo hiệu ứng khi click vào các ô trong navbar  */
+.nav-top a:hover {
+  border-bottom: 2px solid var(--secondary-color);
+  color: black;
+}
+.nav-decor div {
+  height: 70px;
+}
+.nav-decor i {
+  color: var(--secondary-color);
+}
+.nav-border {
+  border-left: 1px solid rgb(238, 229, 229);
+  border-right: 1px solid rgb(238, 229, 229);
+  border-collapse: collapse;
+  padding-top: 20px;
+}
+/* Do không chỉnh được padding top và bot của nav nên thêm 2 
+class này để cho navbar khớp với ảnh và phần dưới */
+.grid-container.alert-boxes {
+  padding: 0;
+}
+/* Chỉnh lại border cho đẹp */
+.border-none {
+  border-left: none;
+}
+/* img của navbar */
+.navbar img {
+  width: 150px;
+  height: 200px;
+  z-index: 100;
+  position: relative;
+  top: -50px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease-in;
+  box-shadow: 0 3px 10px rgb(0, 0, 0, 0.5);
+}
+
+.navbar img:hover {
+  transform: translateY(-15px);
+}
+
+/* Mục tiêu nghề nghiệp và thông tin cá nhân */
+.container-information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  height: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.grid-info {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 470px;
+  margin: auto;
+}
+#target {
+  background-color: rgb(245, 245, 245);
+  padding: 60px 40px 50px 50px;
+}
+#personal-info {
+  background-color: rgb(240, 240, 240);
+  padding: 60px 40px 50px 50px;
+}
+.info i {
+  color: var(--secondary-color);
+}
+.i-info {
+  margin-top: 20px;
+}
+.container {
+  width: none;
+  padding: 0;
+}
+.section-title {
+  margin-bottom: 20px;
+}
+
+/* Kinh Nghiệm, học vấn, hoạt động, sở thích, ngôn ngữ, kỹ năng */
+.container-infor {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 370px);
+  grid-template-rows: 1fr 550px;
+  row-gap: 30px;
+  column-gap: 30px;
+  justify-content: center;
+}
+/* tạo border cho phần kinh nghiệm, học vấn, hoạt động, sở thích, ngôn ngữ, kinh nghiệm. */
+.grid-border {
+  border: 1px solid black;
+  padding: 35px;
+  line-height: 30px;
+}
+.grid-border h3 {
+  margin-top: 15px;
+  font-size: 20px;
+}
+.margin-p {
+  margin-bottom: 20px;
+}
+.ic-toolbox,
+.ic-pencil,
+.ic-telescope,
+.ic-mic,
+.ic-tools-2 {
+  font-size: 40px;
+}
+.grid-upper {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 50px 1fr;
+}
+.grid-below {
+  grid-column: 1/-1;
+}
+.grid-below p {
+  font-size: 15px;
+}
+.flex-hobby {
+  display: grid;
+  margin-top: 30px;
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid-below i {
+  color: var(--secondary-color);
+}
+/* Tạo màu cho thanh Level */
+.level-blue {
+  background: var(--primary-color);
+}
+.level-grey {
+  background: var(--grey-color);
+}
+.text-align {
+  text-align: center;
+}
+/* Circle trong sở thích. */
+.circle {
+  border: 1px var(--secondary-color) solid;
+  border-radius: 50%;
+  width: 47px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.ic-megaphone {
+  font-size: 20px;
+  /* Dùng margin để căn chỉnh icon */
+  margin-left: 9px;
+}
+.ic-strategy {
+  font-size: 20px;
+  /* Dùng margin để căn chỉnh icon */
+  margin-left: 15px;
+}
+.ic-hotairballoon {
+  font-size: 20px;
+  /* Dùng margin để căn chỉnh icon */
+  margin-left: 14px;
+}
+.ic-basket {
+  font-size: 20px;
+  /* Dùng margin để căn chỉnh icon */
+  margin-left: 9px;
+}
+h3 {
+  margin-top: 10px;
+}
+
+/* Thanh level trong ngôn ngữ và kỹ năng. */
+.level {
+  display: inline-block;
+  height: 2px;
+  margin-right: 10px;
+  width: 45px;
+}
+
+/* Chứng chỉ, giải thưởng.*/
+/* Dùng span cho subtitle  */
+/* ghép grid vô container */
+.container-certificate {
+  display: grid;
+  row-gap: 50px;
+  grid-template-columns: repeat(2, 600px);
+  justify-content: center;
+  margin-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.subtitle {
+  grid-column: 1 / -1;
+}
+.flex-certificate {
+  display: flex;
+  gap: 20px;
+  line-height: 30px;
+}
+.flex-certificate p:first-child {
+  margin-top: 20px;
+}
+
+.grid-certificate p {
+  font-size: 16px;
+}
+/* Tạo border màu cam cho phần chứng chỉ và giải thưởng */
+.flex-border {
+  padding-left: 20px;
+  border-left: 1px solid #d6c08d;
+}
+/* Tạo border dọc và ngắn cho chứng chỉ, giải thưởng */
+.container-certificate > span {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #d6c08d;
+}
+
+/* Dự án */
+.project-title {
+  display: none;
+}
+
+.container-project {
+  width: 60%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  justify-content: center;
+  align-items: center;
+  column-gap: 35px;
+  width: 100%;
+  margin-top: 20px;
+}
+.project-flexposition {
+  display: flex;
+  height: 50px;
+  font-size: 16px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgb(192, 189, 189);
+  border-right: 1px solid rgb(192, 189, 189);
+  padding-left: 15px;
+  flex: 0 1 auto;
+}
+.flex-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Lý do hay không căn chỉnh được flex hay grid là do ko đặt 
+  height % cho nó. */
+  height: 100%;
+}
+/* Decor chữ */
+.font-style {
+  display: inline-block;
+  padding: 1px 12px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.section-title {
+  font-size: 30px;
+}
+.project-name {
+  height: 70px;
+  display: grid;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid rgb(192, 189, 189);
+}
+.project .grid {
+  column-gap: 35px;
+}
+/* Cho phần dự án xếp thành hàng dọc */
+.project .flex-project {
+  flex-direction: column;
+}
+.project .flex-project div {
+  width: 100%;
+}
+/* Chỉnh phần 2021, FUNIX, Developer cho vừa với khung */
+.flex-item1 {
+  flex-shrink: 2;
+}
+.project .flex-project th {
+  font-weight: 500;
+}
+.flex-project th {
+  vertical-align: text-top;
+}
+table {
+  width: 100%;
+  height: 300px;
+}
+th {
+  text-align: start;
+  padding-top: 10px;
+  padding-left: 5px;
+}
+.vertical-align {
+  vertical-align: text-top;
+}
+/* Tạo border cho nội dung bên trong Dự án*/
+table,
+th {
+  border: 1px solid rgb(192, 189, 189);
+  border-collapse: collapse;
+}
+tr th:first-child {
+  width: 120px;
+}
+
+/* Footer */
+
+.container-footer {
+  width: 60%;
+  height: 150px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+}
+.footer i {
+  font-size: 40px;
+  color: var(--primary-color);
+}
+.footer .grid span {
+  font-size: 25px;
+  color: gray;
+}
+.footer .grid-3 {
+  grid-template-columns: repeat(3, 200px);
+  column-gap: 50px;
+}
+.footer a {
+  display: inline-block;
+}
+.footer .hover a:hover {
+  color: #7f7f80 !important;
+}
+.footer .hover a {
+  color: #000000;
+}
+/* Tạo hiệu ứng cho các icon trong footer */
+.footer .card {
+  transition: transform 0.2s ease-in;
+}
+.footer .card:hover {
+  transform: translateY(-15px);
+}
