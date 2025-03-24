@@ -1,0 +1,57 @@
+@media (max-width: 992px) {
+  /*==============================================
+   Nav bar
+   ===============================================*/
+  .nav-avatar {
+    display: none;
+  }
+  /*==============================================
+   Phần Mục tiêu nghề nghiệp và Thông tin cá nhân
+   ===============================================*/
+  /* Tablet: Vẫn giữ layout 2 cột, nhưng giảm gap và padding */
+  .container-information {
+    gap: 15px; /* Giảm khoảng cách giữa các cột */
+    padding: 15px; /* Giảm padding so với desktop */
+  }
+  /*==============================================
+   Phần Kinh nghiệm, Học vấn, Hoạt động, Sở thích, Ngôn ngữ, Kỹ năng
+   ===============================================*/
+  .container-infor {
+    grid-template-columns: repeat(2, 1fr); /* 2 cột */
+    grid-auto-rows: auto; /* Chiều cao tự động theo nội dung */
+    gap: 15px; /* Giảm khoảng cách giữa các phần tử */
+    padding: 15px; /* Giảm padding của container */
+  }
+  /*==============================================
+   Phần Chứng chỉ - Giải thưởng
+   ===============================================*/
+  .container-certificate {
+    /* DDùng auto-fit để các box tự co giãn */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 15px;
+    border-bottom: none;
+  }
+  .container-certificate > span {
+    display: inline; /* Cho chữ và hình chồng lên nhau trên 1 line  */
+  }
+  .container-certificate > span:last-child {
+    border: none; /*xóa border ở Span cuối */
+  }
+  .cert-img {
+    width: 100%;
+    max-width: 100%;
+  }
+  /*==============================================
+   Phần Dự án
+   ===============================================*/
+  .container-project {
+    grid-template-columns: repeat(2, 400px);
+    column-gap: 35px;
+    justify-content: center; /* Căn giữa grid nếu không chiếm đủ chiều rộng */
+    margin-bottom: 20px;
+  }
+  .container-project > div:last-child {
+    margin-top: 40px; /*Thêm margin cho phần dự án cuối cùng */
+  }
+}
