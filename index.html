@@ -1,57 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Thiết lập charset -->
     <meta charset="UTF-8" />
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+    <!-- Meta viewport để trang web hiển thị tốt trên các thiết bị di động -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Liên kết đến Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap v5.0 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Liên kết đến file CSS chính -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Liên kết đến file CSS cho font chữ -->
     <link rel="stylesheet" href="css/font.css" />
+    <!-- Responsive cho tablet -->
+    <link rel="stylesheet" href="css/tablet.css" />
+    <!-- Responsive cho mobile -->
+    <link rel="stylesheet" href="css/mobile.css" />
+    <script src="script.js" defer></script>
+    <!-- Tiêu đề trang -->
     <title>Assignment 02</title>
   </head>
   <body>
-    <!-- Image -->
-    <!-- đang bị tách ra làm 2 phải làm cho nó thàng 1 section
-    nên đặt là main-banner-->
+    <!-- Main Banner: Phần hình ảnh banner lớn kèm text -->
+    <!-- Lưu ý: đang bị tách ra làm 2, cần hợp nhất thành 1 section (đặt tên là main-banner) -->
     <div class="main-banner">
+      <!-- Hình ảnh banner sử dụng đường dẫn tương đối -->
       <img
         src="images/banner.jpg"
-        alt=""
-        style="width: 100%; filter: brightness(50%)"
+        alt="Banner của Assignment 02"
+        class="banner-img"
       />
+      <!-- Phần text hiển thị trên banner -->
       <div class="text-banner">
         <h1>Nguyễn Nhật Trường</h1>
         <p>Full Stack Developer</p>
       </div>
     </div>
 
-    <!-- Navigation -->
-    <section class="navbar nav-top">
+    <!-- Navigation: Thanh điều hướng -->
+    <section class="custom-navbar nav-top">
       <div class="container-navbar nav-decor alert-boxes">
+        <!-- Mục "THÔNG TIN" với icon -->
         <div class="nav-border">
           <a href="#about"><i class="icon-user"></i>THÔNG TIN</a>
         </div>
+        <!-- Mục "LÝ LỊCH" với icon; class border-none loại bỏ viền nếu cần -->
         <div class="nav-border border-none">
           <a href="#job-info"><i class="icon-doc-text-inv"></i>LÝ LỊCH</a>
         </div>
-        <div>
-          <a href="https://www.facebook.com/minas.kenny.5" target="_blank"
-            ><img src="images/Anh3x4.jpg" alt=""
-          /></a>
+        <!-- Mục chứa hình ảnh (avatar) với liên kết mở ở trang khác -->
+        <div class="nav-avatar">
+          <a href="https://www.facebook.com/minas.kenny.5" target="_blank">
+            <img
+              src="images/Anh3x4.jpg"
+              alt="Ảnh đại diện của Nguyễn Nhật Trường"
+            />
+          </a>
         </div>
+        <!-- Mục "CHỨNG CHỈ" với icon -->
         <div class="nav-border">
           <a href="#certificate"><i class="icon-mail-alt"></i>CHỨNG CHỈ</a>
         </div>
+        <!-- Mục "DỰ ÁN" với icon -->
         <div class="nav-border border-none">
           <a href="#project"><i class="icon-star-1"></i>DỰ ÁN</a>
         </div>
       </div>
     </section>
 
-    <!-- Mục tiêu nghề nghiệp và thông tin cá nhân -->
-    <section id="about" class="bg-grey">
-      <div class="container-information n">
-        <div id="target">
-          <h1 class="section-title">Mục tiêu nghề nghiệp</h1>
+    <!-- Section "Mục tiêu nghề nghiệp và Thông tin cá nhân" -->
+    <section id="about">
+      <div class="container-information">
+        <!-- Phần Mục tiêu nghề nghiệp -->
+        <div id="target" class="content-box">
+          <h2 class="section-title">Mục tiêu nghề nghiệp</h2>
           <p>
             Là một sinh viên đã hoàn thành chương trình chứng chỉ Doanh Nghiệp
             của FUNiX. Em mong muốn mình sẽ được làm việc với vị trí
@@ -60,111 +91,170 @@
             hoàn thành tốt nhất công việc được giao.
           </p>
         </div>
-        <div id="personal-info">
-          <h1 class="section-title">Thông tin cá nhân</h1>
-          <ul class="mt-40 info">
-            <li><strong>Giới tính</strong> : Nam</li>
-            <li><strong>Ngày sinh</strong> : 29/01/1998</li>
-            <li><strong>Điện thoại</strong> : (+84) 335004xxx</li>
-            <li><strong>Email</strong> : kennyminas29011998@gmail.com</li>
+        <!-- Phần Thông tin cá nhân -->
+        <form id="emailForm" class="content-box hide" novalidate>
+          <label for="emailInput">Nhập email:</label><br />
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Nhập email của bạn"
+            required
+          />
+          <button type="submit">Gửi</button>
+          <!-- Thông báo lỗi sẽ hiển thị tại đây nếu email không hợp lệ -->
+          <p id="error" class="error-message hide">
+            Vui lòng nhập email hợp lệ.
+          </p>
+        </form>
+
+        <div id="personalInfo" class="content-box hide" novalidate>
+          <h2 class="section-title">Thông tin cá nhân</h2>
+          <ul class="info">
+            <li><strong>Giới tính:</strong> Nam</li>
+            <li><strong>Ngày sinh:</strong> 29/01/1998</li>
+            <li><strong>Điện thoại:</strong> (+84) 335004xxx</li>
+            <li><strong>Email:</strong> kennyminas29011998@gmail.com</li>
             <li>
-              <strong>Địa chỉ</strong> : 566/20/2 Nguyễn Thái Sơn p5 Quận Gò Vấp
+              <strong>Địa chỉ:</strong> 566/20/2 Nguyễn Thái Sơn p5 Quận Gò Vấp
             </li>
-            <li><strong>Website</strong> : https://abc.tech</li>
-            <li class="i-info">
-              <a href="https://twitter.com/kennyTruongNg" target="_blank"
-                ><i class="icon-twitter"></i
-              ></a>
-              <a href="https://www.facebook.com/minas.kenny.5" target="_blank"
-                ><i class="icon-facebook"></i
-              ></a>
+            <li>
+              <strong>Website:</strong>
+              <a href="https://abc.tech" target="_blank">https://abc.tech</a>
+            </li>
+            <!-- Các liên kết mạng xã hội -->
+            <li class="social-links">
+              <a href="https://twitter.com/kennyTruongNg" target="_blank">
+                <i class="icon-twitter"></i>
+              </a>
+              <a href="https://www.facebook.com/minas.kenny.5" target="_blank">
+                <i class="icon-facebook"></i>
+              </a>
               <a
                 href="https://github.com/kennytn2901/kennynguyen.github.io"
                 target="_blank"
-                ><i class="icon-gplus"></i
-              ></a>
+              >
+                <i class="icon-gplus"></i>
+              </a>
               <a
-                target="_blank"
                 href="https://www.linkedin.com/in/tr%C6%B0%E1%BB%9Dng-nguy%E1%BB%85n-nh%E1%BA%ADt-405467273/"
-                ><i class="icon-linkedin"></i
-              ></a>
+                target="_blank"
+              >
+                <i class="icon-linkedin"></i>
+              </a>
             </li>
           </ul>
+          <button type="button" id="backButton" class="button-box">
+            Quay lại
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Kinh Nghiệm, học vấn, hoạt động, sở thích, ngôn ngữ, kỹ năng -->
+    <!-- Section "Kinh nghiệm, Học vấn, Hoạt động, Sở thích, Ngôn ngữ, Kỹ năng" -->
     <section id="job-info">
       <div class="container-infor">
-        <div class="grid-upper grid-border font" style="margin-top: 20px">
+        <!-- Kinh nghiệm -->
+        <div class="grid-upper grid-border font mt-20 Experience">
           <div>
             <h2>Kinh nghiệm</h2>
           </div>
-          <div><i class="ic-toolbox"></i></div>
+          <div>
+            <!-- Icon biểu thị kinh nghiệm -->
+            <i class="ic-toolbox"></i>
+          </div>
+
           <div class="grid-below">
-            <h3>Công Ty Y</h3>
+            <!-- Thông tin về Công Ty KEIZU -->
+            <h3>Công Ty Keizu Vietnam Co., Ltd.</h3>
             <p class="margin-p">
-              05/2022-<span class="font-style"><em>Hiện tại</em></span>
+              09/2023-<span class="font-style"><em>Hiện tại</em></span>
             </p>
-            <p>- Full Stack Developer</p>
+            <p>- BrSE</p>
             <p>
-              - Xây dựng, phát triển Website dựa trên thiết kế và yêu cầu đã có
+              - Truyền đạt công việc của bên Japan cho Việt Nam, chịu trách
+              nhiệm chính cho các dự án
             </p>
             <p>
-              - Phân tích và thiết kế Database, sử dụng các hệ quản trị CSDL
+              - Viết tài liệu Yêu cầu, tài liệu Chi tiết, tài liệu UT cho phía
+              VN
             </p>
-            <h3>Công Ty X</h3>
+            <!-- Thông tin về Công Ty X -->
+            <!--<h3>Công Ty X</h3>
             <p class="margin-p"><em>06/2021 - 04/2022</em></p>
             <p>Web Designer</p>
             <p>- Thiết kế Website dựa trên yêu cầu của khách hàng.</p>
-            <p>- Sử dụng các công cụ: Figma, Canva, PTS</p>
+            <p>- Sử dụng các công cụ: Figma, Canva, PTS</p>-->
           </div>
+          <button class="view-button">View More</button>
         </div>
-        <div class="grid-border grid-upper font" style="margin-top: 20px">
+
+        <!-- Học vấn -->
+        <div class="grid-border grid-upper font mt-20 Education">
           <div>
             <h2>Học vấn</h2>
           </div>
-          <div><i class="ic-pencil"></i></div>
+          <div>
+            <!-- Icon biểu thị học vấn -->
+            <i class="ic-pencil"></i>
+          </div>
           <div class="grid-below">
+            <!-- Thông tin về FUNIX -->
             <h3>FUNIX</h3>
             <p class="margin-p"><em>06/2021 - 05/2022</em></p>
             <p>- Tốt nghiệp chứng chỉ doanh nghiệp nhánh Fullstack</p>
             <p>- GPA: 9/10</p>
+            <!-- Thông tin về Cử nhân - ĐH FPT -->
             <h3>Cử nhân - ĐH FPT</h3>
             <p class="margin-p"><em>08/2016 - 07/2019</em></p>
             <p>- Chuyên ngành: Kỹ thuật phần mềm.</p>
             <p>- GPA: 3.2/4</p>
+            <!-- Thông tin về Đại học Hà Nội -->
             <h3>Đại học Hà Nội</h3>
             <p class="margin-p"><em>08/2016 - 02/2018</em></p>
             <p>- Hệ từ xa, Chuyên ngành: Ngôn ngữ Nhật</p>
             <p>- GPA: 2.8/4</p>
           </div>
+          <button class="view-button">View More</button>
         </div>
-        <div class="grid-border grid-upper font" style="margin-top: 20px">
+
+        <!-- Hoạt động -->
+        <div class="grid-border grid-upper font mt-20 Activities">
           <div>
             <h2>Hoạt động</h2>
           </div>
-          <div><i class="ic-toolbox"></i></div>
+          <div>
+            <!-- Icon cho hoạt động -->
+            <i class="ic-toolbox"></i>
+          </div>
           <div class="grid-below">
+            <!-- Thông tin về FPT Edu Hackathon 2019 -->
             <h3>FPT Edu Hackathon 2019</h3>
             <p class="margin-p"><em>03/2019 - 05/2019</em></p>
             <p>- Giải 3 bảng A</p>
             <p>- Đề tài: trang web về phân loại rác thải</p>
+            <!-- Thông tin về Câu Lạc bộ Z -->
             <h3>Câu Lạc bộ Z</h3>
             <p class="margin-p"><em>08/2018 - 08/2019</em></p>
             <p>- Trưởng ban chuyên môn</p>
+            <!-- Thông tin về Câu lạc bộ Z (sự kiện khác) -->
             <h3>Câu lạc bộ Z</h3>
             <p class="margin-p"><em>08/2016</em></p>
             <p>Hỗ trợ tổ chức tuần lễ văn hóa Việt Nam - Nhật Bản</p>
           </div>
+          <button class="view-button">View More</button>
         </div>
-        <div class="grid-border grid-upper" style="margin-top: 20px">
+
+        <!-- Sở thích -->
+        <div class="grid-border grid-upper mt-20 Interest">
           <div>
             <h2>Sở thích</h2>
           </div>
-          <div><i class="ic-telescope"></i></div>
-          <div class="grid-below flex-hobby">
+          <div>
+            <!-- Icon cho sở thích -->
+            <i class="ic-telescope"></i>
+          </div>
+          <div class="grid-below grid-hobby">
+            <!-- Mỗi mục sở thích được đặt trong 1 khối -->
             <div>
               <div class="circle">
                 <i class="ic-megaphone"></i>
@@ -172,13 +262,15 @@
               <p>Âm Nhạc</p>
             </div>
             <div>
-              <div class="circle">
+              <!--class="strategy" Chỉnh vị trí cho phần Icon-strategy bên trong Circle -->
+              <div class="circle strategy">
                 <i class="ic-strategy"></i>
               </div>
               <p>Du lịch</p>
             </div>
             <div>
-              <div class="circle">
+              <!--class="hotairballoon" Chỉnh vị trí cho phần Icon-hotairballoon bên trong Circle -->
+              <div class="circle hotairballoon">
                 <i class="ic-hotairballoon"></i>
               </div>
               <p>Chơi game</p>
@@ -190,29 +282,48 @@
               <p>Nấu ăn</p>
             </div>
           </div>
+          <button class="view-button">View More</button>
         </div>
-        <div class="grid-border grid-upper" style="margin-top: 20px">
+
+        <!-- Ngôn ngữ -->
+        <div class="grid-border grid-upper mt-20 Language">
           <div>
             <h2>Ngôn ngữ</h2>
           </div>
-          <div><i class="ic-mic"></i></div>
+          <div>
+            <!-- Icon cho ngôn ngữ -->
+            <i class="ic-mic"></i>
+          </div>
           <div class="grid-below">
-            <h3>English - IELTS 7.0</h3>
+            <!-- Thông tin về tiếng Anh -->
+            <h3>BJT - J2</h3>
             <span class="level level-blue"></span>
             <span class="level level-blue"></span>
             <span class="level level-grey"></span>
+            <!-- Thông tin về tiếng Nhật -->
             <h3>Japanese - N1</h3>
             <span class="level level-blue"></span>
-            <span class="level level-grey"></span>
-            <span class="level level-grey"></span>
+            <span class="level level-blue"></span>
+            <span class="level level-blue"></span>
+            <h3>PROGOSS - B1 high</h3>
+            <span class="level level-blue"></span>
+            <span class="level level-blue"></span>
+            <span class="level level-blue"></span>
           </div>
+          <button class="view-button">View More</button>
         </div>
-        <div class="grid-border grid-upper" style="margin-top: 20px">
+
+        <!-- Kỹ năng -->
+        <div class="grid-border grid-upper mt-20 Skill">
           <div>
             <h2>Kỹ năng</h2>
           </div>
-          <div><i class="ic-tools-2"></i></div>
+          <div>
+            <!-- Icon cho kỹ năng -->
+            <i class="ic-tools-2"></i>
+          </div>
           <div class="grid-below">
+            <!-- Các kỹ năng được liệt kê với mức độ -->
             <h3>HTML/CSS: Fundamental</h3>
             <span class="level level-blue"></span>
             <span class="level level-grey"></span>
@@ -221,29 +332,31 @@
             <span class="level level-blue"></span>
             <span class="level level-blue"></span>
             <span class="level level-grey"></span>
-            <h3>NodeJS: Intermediate</h3>
+            <!--  <h3>NodeJS: Intermediate</h3>
             <span class="level level-blue"></span>
             <span class="level level-blue"></span>
-            <span class="level level-grey"></span>
+            <span class="level level-grey"></span>-->
             <h3>Bootstrap 5: Fundamental</h3>
             <span class="level level-blue"></span>
             <span class="level level-grey"></span>
             <span class="level level-grey"></span>
           </div>
+          <button class="view-button">View More</button>
         </div>
       </div>
     </section>
 
-    <!-- Chứng chỉ - giải thưởng -->
+    <!-- Chứng chỉ - Giải thưởng -->
     <section class="certificate bg-grey" id="certificate">
-      <div class="container-certificate my-2">
+      <div class="container-certificate">
         <h2 class="subtitle">Chứng chỉ - Giải thưởng</h2>
+        <!-- Mỗi chứng chỉ được hiển thị theo dạng flex -->
         <span class="flex-certificate">
           <div>
             <img
               src="images/Cert_WEB.png"
               alt="Chứng chỉ lập trình web"
-              style="width: 350px; height: 200px"
+              class="cert-img"
             />
           </div>
           <div>
@@ -257,8 +370,7 @@
             <img
               src="images/Cert_PRF.png"
               alt="Chứng chỉ lập trình javascript"
-              style="width: 350px; height: 200px"
-              class="flex-border"
+              class="cert-img flex-border"
             />
           </div>
           <div>
@@ -267,13 +379,12 @@
             <p>- GPA: 8.9</p>
           </div>
         </span>
-
-        <div class="flex-certificate">
+        <span class="flex-certificate border-none">
           <div>
             <img
               src="images/Cert_DBI.png"
               alt="Chứng chỉ lập trình database"
-              style="width: 350px; height: 200px"
+              class="cert-img"
             />
           </div>
           <div>
@@ -281,7 +392,7 @@
             <p>- Chứng chỉ thuộc chương trình CCDN</p>
             <p>- GPA: 8.0</p>
           </div>
-        </div>
+        </span>
       </div>
     </section>
 
@@ -289,8 +400,9 @@
     <section class="project" id="project">
       <div class="container-project">
         <h2 class="subtitle">Dự án</h2>
+        <!-- Mỗi dự án được hiển thị theo flex -->
         <div class="flex-project">
-          <img src="images/project_1.png " style="width: 100%" />
+          <img src="images/project_1.png" class="project-img" />
           <div class="project-name">
             <p>CV CÁ NHÂN</p>
           </div>
@@ -307,6 +419,7 @@
               <span>Developer</span>
             </div>
           </div>
+          <!-- Bảng thông tin mô tả dự án -->
           <table>
             <tr>
               <th>Mô tả</th>
@@ -326,7 +439,7 @@
           </table>
         </div>
         <div class="flex-project">
-          <img src="images/project_2.png" style="width: 100%" />
+          <img src="images/project_2.png" class="project-img" />
           <div class="project-name">
             <p>TRANG WEB QUẢN LÝ THÚ CƯNG</p>
           </div>
@@ -402,52 +515,61 @@
     </section>
 
     <!-- Footer -->
-    <section class="footer bg-grey">
-      <div class="container-footer nav-link">
-        <div>
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Mục Footer: liên kết đến Facebook -->
+        <div class="footer-item">
           <a
             href="https://www.facebook.com/minas.kenny.5"
             target="_blank"
-            class="card"
-            ><i class="icon-facebook-circled"></i
-          ></a>
-          <span class="hover"
-            ><a href="https://www.facebook.com/minas.kenny.5" target="_blank"
-              >Facebook</a
-            ></span
+            class="footer-link"
           >
+            <i class="icon-facebook-circled"></i>
+          </a>
+          <span>
+            <a href="https://www.facebook.com/minas.kenny.5" target="_blank">
+              Facebook
+            </a>
+          </span>
         </div>
-        <div>
+        <!-- Mục Footer: liên kết đến LinkedIn -->
+        <div class="footer-item">
           <a
             href="https://www.linkedin.com/in/tr%C6%B0%E1%BB%9Dng-nguy%E1%BB%85n-nh%E1%BA%ADt-405467273/"
             target="_blank"
-            class="card"
-            ><i class="icon-linkedin-circled"></i
-          ></a>
-          <span class="hover"
-            ><a
-              target="_blank"
-              href="https://www.linkedin.com/in/tr%C6%B0%E1%BB%9Dng-nguy%E1%BB%85n-nh%E1%BA%ADt-405467273/"
-              >Linkedin</a
-            ></span
+            class="footer-link"
           >
+            <i class="icon-linkedin-circled"></i>
+          </a>
+          <span>
+            <a
+              href="https://www.linkedin.com/in/tr%C6%B0%E1%BB%9Dng-nguy%E1%BB%85n-nh%E1%BA%ADt-405467273/"
+              target="_blank"
+              >LinkedIn</a
+            >
+          </span>
         </div>
-        <div>
+        <!-- Mục Footer: liên kết đến GitHub -->
+        <div class="footer-item">
           <a
             href="https://github.com/kennytn2901/kennynguyen.github.io"
             target="_blank"
-            class="card"
-            ><i class="icon-github-circled"></i
-          ></a>
-          <span class="hover"
-            ><a
-              target="_blank"
-              href="https://github.com/kennytn2901/kennynguyen.github.io"
-              >Github</a
-            ></span
+            class="footer-link"
           >
+            <i class="icon-github-circled"></i>
+          </a>
+          <span>
+            <a
+              href="https://github.com/kennytn2901/kennynguyen.github.io"
+              target="_blank"
+              >GitHub</a
+            >
+          </span>
         </div>
       </div>
-    </section>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Nguyễn Nhật Trường. All Rights Reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
