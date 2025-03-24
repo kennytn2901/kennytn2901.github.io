@@ -1,0 +1,107 @@
+/* Mobile: Ảnh hưởng cho màn hình với chiều rộng dưới khoảng 576px */
+@media (max-width: 576px) {
+  /*==============================================
+   Cỡ chữ cho Mobile 
+===============================================*/
+  body {
+    font-size: 16px; /* Cỡ chữ cơ bản cho mobile */
+  }
+  h1 {
+    font-size: 2rem; /* Điều chỉnh kích thước tiêu đề */
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  p {
+    font-size: 0.9rem; /* Giảm nhẹ cỡ chữ cho đoạn văn */
+  }
+  /*==============================================
+   Nav bar
+===============================================*/
+  .custom-navbar {
+    display: block;
+  }
+  .custom-navbar div {
+    display: block; /* Dàn các item theo chiều dọc */
+    padding: 10px; /* Điều chỉnh padding sao cho hợp lý */
+    margin: 5px 0; /* Điều chỉnh margin để các item không quá dày đặc */
+    text-align: left;
+  }
+  .nav-avatar {
+    display: none !important;
+  }
+  .nav-border {
+    border: none; /*Loại bỏ Border ở viền trái */
+  }
+  /*==============================================
+   Phần Mục tiêu nghề nghiệp và Thông tin cá nhân
+   ===============================================*/
+  /* Mobile: Chuyển thành layout 1 cột (mỗi phần chiếm cả hàng) */
+  .container-information {
+    flex-direction: column; /* Chỉ 1 cột */
+    gap: 10px; /* Gap nhỏ hơn */
+    padding: 10px; /* Padding nhỏ hơn */
+  }
+  /*==============================================
+   Phần "Kinh nghiệm, Học vấn, Hoạt động, Sở thích, Ngôn ngữ, Kỹ năng"
+   ===============================================*/
+  /* Mobile: Chuyển thành 1 cột */
+  .container-infor {
+    grid-template-columns: 1fr; /* 1 cột */
+    gap: 10px; /* Khoảng cách nhỏ hơn */
+    padding: 10px; /* Padding nhỏ hơn */
+  }
+  /*==============================================
+   Phần Chứng chỉ - Giải thưởng
+   ===============================================*/
+  .container-certificate {
+    grid-template-columns: 1fr; /* 1 cột */
+    gap: 10px;
+    padding: 10px;
+  }
+  .cert-img {
+    width: 100%;
+    height: auto;
+  }
+  .container-certificate > span {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #d6c08d; /* Chỉ có border dưới */
+    padding-bottom: 10px; /* Thêm khoảng cách cho border dưới */
+  }
+
+  .flex-border {
+    border: none;
+    padding-left: 0;
+  }
+  /*==============================================
+   Phần Dự án
+   ===============================================*/
+  .container-project {
+    grid-template-columns: 1fr; /* 1 cột */
+    gap: 10px; /* Giảm khoảng cách */
+    padding: 10px;
+  }
+  .project-name {
+    text-align: center;
+  }
+  .container-project > div:last-child {
+    margin-top: 0px; /*bỏ margin cho phần dự án cuối cùng, bị ảnh hưởng bởi phần  .container-project > div:last-child
+    ở Tablet */
+  }
+  /*==============================================
+   Phần cho ứng dụng mobile của Form
+   ===============================================*/
+  form#emailForm {
+    width: 90%; /* Tăng chiều rộng để phù hợp màn hình di động */
+    margin: 20px auto; /* Giảm margin để tiết kiệm không gian */
+  }
+  form#emailForm input[type="email"] {
+    font-size: 16px; /* Tăng font size cho dễ đọc */
+    padding: 10px; /* Tăng padding cho dễ nhập */
+  }
+}
